@@ -117,17 +117,15 @@ body.dark-theme {
   }
 }
 
+.result-section .image-wrapper {
+  background-color: #eee;
+  margin: 0 0 1em;
+}
+
 .result-section img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.result-section .item {
-  background-color: #eee;
-  display: inline-block;
-  margin: 0 0 1em;
-  width: 100%;
 }
 
 /* Modal Sesction */

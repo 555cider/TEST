@@ -6,17 +6,15 @@ export default class ResultSection {
         this.onClick = onClick;
 
         this.$result = document.createElement("section");
-        this.$result.className = "result-section";        
+        this.$result.className = "result-section";
         $target.appendChild(this.$result);
 
         this.render();
-        lazyLoad();
     }
 
     setState(data) {
         this.data = data;
         this.render();
-        lazyLoad();
     }
 
     render() {
@@ -28,18 +26,29 @@ export default class ResultSection {
                 imageWrapper.title = datum.name;
 
                 const image = document.createElement('img');
-                image.className = "lazy";
-                image.dataset.src = datum.url;
-                image.dataset.alt = datum.name;
+                if ('loading' in HTMLImageElement.prototype) {
+                    image.loading = "lazy";
+                    image.src = datum.url;
+                    image.alt = datum.name;
+                } else {
+                    image.className = "lazy";
+                    image.dataset.src = datum.url;
+                    image.alt = datum.name;
+                }
 
                 imageWrapper.appendChild(image);
                 this.$result.appendChild(imageWrapper);
             });
-            this.$result.querySelectorAll(".image-wrapper").forEach((item, index) => {
-                item.addEventListener("click", () => {
+
+            this.$result.querySelectorAll(".image-wrapper").forEach((e, index) => {
+                e.addEventListener("click", () => {
                     this.onClick(this.data[index]);
                 });
             });
+
+            if (!('loading' in HTMLImageElement.prototype)) {
+                lazyLoad();
+            }
         } else {
             this.$result.innerHTML =
                 `<article class="notice"><h2>검색 결과가 없습니다.</h2></article>`;

@@ -1,6 +1,6 @@
 /* @font-face {
-  font-family: "Goyang";
-  src: url("fonts/Goyang.woff") format("woff");
+  font-family: 'Goyang';
+  src: url(fonts/Goyang.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 } */
@@ -21,15 +21,16 @@ body * {
 }
 
 #app {
+  column-gap: 1.5em;
   margin: 1.5em auto;
   max-width: 1200px;
-  column-gap: 1.5em;
 }
 
 /* Dark Theme */
+
 .theme-toggle {
-  margin: 1%;
   font-size: 15px;
+  margin: 1%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,93 +51,145 @@ body.dark-theme {
 }
 
 /* Search Section */
-.search-inp {
-  width: 85%;
-  font-size: 40px;
-  padding: 10px 15px;
+
+.search-section {
+  text-align: center;  
 }
 
-.random-btn {
-  width: 15%;
-  font-size: 40px;
+.search-section .search-inp {
+  font-size: 35px;
   padding: 10px 15px;
+  margin-right: 2%;
+  width: 80%;
 }
 
-.recents {
+.search-section .random-btn {
+  font-size: 35px;
+  padding: 5px;
+}
+
+.search-section .recent {
   cursor: pointer;
   margin: 0 5px;
 }
 
 /* Banner Section */
+
 .banner-section {
-  padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
+  height: 200px;
+  margin: 2% 1%;
+  position: relative;
 }
 
-.banner-section img {
-  width: 100%;
+.banner-section .banner-imgs {
   height: 100%;
-  object-fit: cover;
+  transition: all 0.3s ease;
 }
 
-.banner-section .item {
-  background-color: #eee;
-  margin: 0 0 1em;
+.banner-section .banner-img {
+  display: none;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.banner-section img.current {
+  display: block;
+}
+
+.banner-section #prev-btn,
+#next-btn {
+  border: #000 solid 5px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  margin: -2% 2% 0 2%;
+  padding: 5px;
+  top: 50%;
+  transition: 0.5s ease;
+}
+
+.banner-section #next-btn {
+  right: 2%;
+}
+
+.banner-section #prev-btn:hover,
+#next-btn:hover {
+  transform: scale(1.1);
+}
+
+.banner-section .banner-dots {
+  position: absolute;
+  text-align: center;
+  top: 85%;
+  width: 100%;
+}
+
+.banner-section .banner-dot {
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 2px;
+  padding: 7px;
+  transition: background-color 0.6s ease;
+}
+
+.banner-section .banner-dots .current,
+.banner-dot:hover {
+  background-color: #000;
 }
 
 /* Result Section */
-.notice {
+
+.result-section .notice {
   margin-top: 5%;
   text-align: center;
 }
 
 .result-section {
-  margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(250px, 1fr));
   grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1% 1%;
 }
 
 @media (max-width: 992px) {
   .result-section {
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .result-section {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 576px) {
   .result-section {
-    grid-template-columns: repeat(1, minmax(250px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
-.result-section .image-wrapper {
-  background-color: #eee;
-  margin: 0 0 1em;
-}
-
 .result-section img {
-  width: 100%;
   height: 100%;
   object-fit: cover;
+  width: 100%;
 }
 
 /* Modal Sesction */
+
 .modal-section {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   color: #000;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
 
 .modal-section .title {
@@ -154,13 +207,13 @@ body.dark-theme {
 }
 
 .modal-section .content-wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   background-color: #fff;
   border: 1px solid #eee;
   border-radius: 5px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal-section .content-wrapper img {
@@ -174,6 +227,7 @@ body.dark-theme {
 }
 
 /* 페이드 인-아웃 */
+
 .fade-in {
   animation: fadeIn 3s;
   animation-fill-mode: forwards;

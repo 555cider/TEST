@@ -5,6 +5,7 @@ export default class ModalSection {
         this.$modal = document.createElement("section");
         this.$modal.className = "modal-section";
         this.$modal.style.display = "none";
+
         $target.appendChild(this.$modal);
 
         document.body.addEventListener("keyup", (e) => {
@@ -35,17 +36,11 @@ export default class ModalSection {
 
     render() {
         const { name, url, temperament, origin } = this.data;
-        this.$modal.innerHTML =
-            `<div class="content-wrapper">
-                    <div class="title">
-                        <span>${name}</span>
-                        <div class="close">x</div>
-                    </div>
-                    <img src="${url}" alt="${name}"/>
-                    <div class="description">
-                        <div>성격: ${temperament}</div>
-                        <div>태생: ${origin}</div>
-                    </div>
-                </div>`;
+        const contentWrapper = document.createElement("article");
+        contentWrapper.className = "content-wrapper";
+        contentWrapper.innerHTML += `<div class="title"><span>${name}</span><div class="close">x</div></div>`;
+        contentWrapper.innerHTML += `<img src="${url}" alt="${name}"/>`;
+        contentWrapper.innerHTML += `<div class="description"><span>성격: ${temperament}</span><br><span>태생: ${origin}</span></div>`;
+        this.$modal.appendChild(contentWrapper);
     }
 }

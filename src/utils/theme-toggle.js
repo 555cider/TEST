@@ -3,21 +3,21 @@ export default class ThemeToggle {
         this.$theme = document.createElement("div");
         this.$theme.className = "theme-toggle";
 
-        const themeChk = document.createElement("input");
-        themeChk.type = "checkbox";
-        themeChk.id = "theme";
+        this.themeChk = document.createElement("input");
+        this.themeChk.type = "checkbox";
+        this.themeChk.id = "theme";
 
-        const themeLbl = document.createElement("Label");
-        themeLbl.setAttribute("for", themeChk.id);
-        themeLbl.innerHTML = "다크 모드";
+        this.themeLbl = document.createElement("Label");
+        this.themeLbl.innerHTML = "다크 모드";
+        this.themeLbl.setAttribute("for", this.themeChk.id);
 
-        this.$theme.appendChild(themeChk);
-        this.$theme.appendChild(themeLbl);
+        this.$theme.appendChild(this.themeChk);
+        this.$theme.appendChild(this.themeLbl);
         $target.prepend(this.$theme);
 
         const prefersColorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-        themeChk.checked = prefersColorScheme.matches;
-        themeChk.addEventListener("click", () => {
+        this.themeChk.checked = prefersColorScheme.matches;
+        this.themeChk.addEventListener("click", () => {
             if (prefersColorScheme.matches) {
                 document.body.classList.toggle("light-theme");
             } else {

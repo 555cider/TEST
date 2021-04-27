@@ -1,28 +1,33 @@
+import errorHandler from "./utils/error-handler.js";
+
 const API_ENDPOINT = "https://oivhcpn8r9.execute-api.ap-northeast-2.amazonaws.com/dev";
 
 const api = {
-    fetchCat: async keyword => {
-        try {
-            const response = await fetch(`${API_ENDPOINT}/api/cats/search?q=${keyword}`);
+    fetchCat: async (keyword) => {
+        const response = await fetch(`${API_ENDPOINT}/api/cats/search?q=${keyword}`);
+        if (response.ok) {
             return response.json();
-        } catch (e) {
-            console.warn(e);
+        } else {
+            alert(errorHandler(response));
+            console.error(errorHandler(response));
         }
     },
     fetchCatRandom: async () => {
-        try {
-            const response = await fetch(`${API_ENDPOINT}/api/cats/random50`);
+        const response = await fetch(`${API_ENDPOINT}/api/cats/random50`);
+        if (response.ok) {
             return response.json();
-        } catch (e) {
-            console.warn(e);
+        } else {
+            alert(errorHandler(response));
+            console.error(errorHandler(response));
         }
     },
-    fetchCatDetails: async id => {
-        try {
-            const response = await fetch(`${API_ENDPOINT}/api/cats/${id}`);
+    fetchCatDetails: async (id) => {
+        const response = await fetch(`${API_ENDPOINT}/api/cats/${id}`);
+        if (response.ok) {
             return response.json();
-        } catch (e) {
-            console.warn(e);
+        } else {
+            alert(errorHandler(response));
+            console.error(errorHandler(response));
         }
     }
 };

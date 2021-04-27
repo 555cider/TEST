@@ -1,4 +1,4 @@
-import lazyLoad from "../utils/lazyLoad.js";
+import LazyLoading from "../utils/lazy-loading.js";
 
 export default class ResultSection {
     constructor({ $target, data, onClick }) {
@@ -12,13 +12,20 @@ export default class ResultSection {
         this.render();
     }
 
+    clear() {
+        this.$result.innerHTML = "";
+    }
+
     setState(data) {
         this.data = data;
         this.render();
     }
 
     render() {
-        if (this.data.length > 0) {
+        if (this.data.length === 0) {
+            this.$result.innerHTML =
+                `<article class="notice"><h2>검색 결과가 없습니다.</h2></article>`;
+        } else {
             this.$result.innerHTML = "";
             this.data.map(datum => {
                 const imageWrapper = document.createElement("article");
@@ -32,7 +39,7 @@ export default class ResultSection {
                     image.alt = datum.name;
                 } else {
                     image.className = "lazy";
-                    image.dataset.src = datum.url;
+                    image.src = datum.url;
                     image.alt = datum.name;
                 }
 
@@ -47,11 +54,8 @@ export default class ResultSection {
             });
 
             if (!('loading' in HTMLImageElement.prototype)) {
-                lazyLoad();
+                LazyLoading();
             }
-        } else {
-            this.$result.innerHTML =
-                `<article class="notice"><h2>검색 결과가 없습니다.</h2></article>`;
         }
     }
 }

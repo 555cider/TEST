@@ -1,5 +1,4 @@
-# CatAlbum
-[프론트엔드] 고양이 사진첩 애플리케이션
+# [프론트엔드] 고양이 사진첩 애플리케이션
 
 출처: 프로그래머스 실력 체크 (https://programmers.co.kr/skill_check_assignments/100)
 

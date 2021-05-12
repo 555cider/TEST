@@ -1,4 +1,4 @@
-export default class BannerSection {
+export class BannerSection {
     constructor({ $target, data, onBanner, onClick }) {
         this.data = data;
         this.onBanner = onBanner;

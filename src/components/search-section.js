@@ -1,4 +1,4 @@
-export default class SearchSection {
+export class SearchSection {
     constructor({ $target, onSearch, onRandom }) {
         this.onSearch = onSearch;
         this.onRandom = onRandom;

@@ -1,4 +1,4 @@
-export default function errorHandler(response) {
+export function errorHandler(response) {
     const errorTable = [
         [400, "Bad Request", "Client sent an invalid request"],
         [401, "Unauthorized", "Client failed to authenticate with the server"],

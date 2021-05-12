@@ -1,4 +1,4 @@
-export default class ModalSection {
+export class ModalSection {
     constructor({ $target, data }) {
         this.data = data;
 

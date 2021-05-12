@@ -1,6 +1,6 @@
-import LazyLoading from "../utils/lazy-loading.js";
+import { lazyLoading } from "../utils/lazy-loading.js";
 
-export default class ResultSection {
+export class ResultSection {
     constructor({ $target, data, onClick }) {
         this.data = data;
         this.onClick = onClick;
@@ -54,7 +54,7 @@ export default class ResultSection {
             });
 
             if (!('loading' in HTMLImageElement.prototype)) {
-                LazyLoading();
+                lazyLoading();
             }
         }
     }

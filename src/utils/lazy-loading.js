@@ -1,4 +1,4 @@
-export default function LazyLoading() {
+export function lazyLoading() {
     const options = { root: document, rootMargin: '0px 0px 10px 0px', threshold: 0.5 };
 
     const lazyObserver = new IntersectionObserver(entries =>

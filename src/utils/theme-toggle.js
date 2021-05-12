@@ -1,5 +1,5 @@
-export default class ThemeToggle {
-    constructor({ $target }) {
+export class ThemeToggle {
+    constructor($target) {
         this.$theme = document.createElement("div");
         this.$theme.className = "theme-toggle";
 
@@ -7,7 +7,7 @@ export default class ThemeToggle {
         this.themeChk.type = "checkbox";
         this.themeChk.id = "theme";
 
-        this.themeLbl = document.createElement("Label");
+        this.themeLbl = document.createElement("label");
         this.themeLbl.innerHTML = "다크 모드";
         this.themeLbl.setAttribute("for", this.themeChk.id);
 

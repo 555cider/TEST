@@ -1,9 +1,9 @@
-import { SearchSection as searchSection } from "./components/search-section.js";
-import { ResultSection as resultSection } from "./components/result-section.js";
-import { ModalSection as modalSection } from "./components/modal-section.js";
-import { BannerSection as bannerSection } from "./components/banner-section.js";
-import { ThemeToggle as themeToggle } from "./utils/theme-toggle.js";
-import { LoadingSpinner as loadingSpinner } from "./utils/loading-spinner.js";
+import { SearchSection } from "./components/search-section.js";
+import { ResultSection } from "./components/result-section.js";
+import { ModalSection } from "./components/modal-section.js";
+import { BannerSection } from "./components/banner-section.js";
+import { ThemeToggle } from "./utils/theme-toggle.js";
+import { LoadingSpinner } from "./utils/loading-spinner.js";
 import { api } from "./api.js";
 
 export class App {
@@ -16,11 +16,11 @@ export class App {
             this.data = [];
         }
 
-        this.$search = new searchSection({
+        this.$search = new SearchSection({
             $target,
             onSearch: async (keyword) => {
                 this.$result.clear();
-                const $spinner = new loadingSpinner($target);
+                const $spinner = new LoadingSpinner($target);
                 await api.fetchCat(keyword).then(response => {
                     this.$result.setState(response.data);
                     sessionStorage.setItem('data', JSON.stringify(response.data));
@@ -29,29 +29,29 @@ export class App {
             },
             onRandom: async () => {
                 this.$result.clear();
-                const $spinner = new loadingSpinner($target);
+                const $spinner = new LoadingSpinner($target);
                 await api.fetchCatRandom().then(response => this.$result.setState(response.data));
                 $spinner.removeSpinner();
             }
         });
 
-        this.$banner = new bannerSection({
+        this.$banner = new BannerSection({
             $target,
             data: this.data,
             onBanner: async () => await api.fetchCatRandom().then(response => this.$banner.setState(response.data))
         });
 
-        this.$result = new resultSection({
+        this.$result = new ResultSection({
             $target,
             data: this.data,
             onClick: async image => await api.fetchCatDetails(image.id).then(response => this.$modal.setState(response.data))
         });
 
-        this.$modal = new modalSection({
+        this.$modal = new ModalSection({
             $target,
             data: this.data
         });
 
-        this.$themeToggle = new themeToggle($target);
+        this.$themeToggle = new ThemeToggle($target);
     }
 }

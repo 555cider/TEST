@@ -1,4 +1,4 @@
-export default class Breadcrumb {
+export class Breadcrumb {
   constructor({ $app, initialState, onClick }) {
     this.state = initialState;
     this.onClick = onClick;

@@ -1,6 +1,6 @@
 const API_END_POINT = `https://zl3m4qq0l9.execute-api.ap-northeast-2.amazonaws.com/dev`;
 
-const request = async (nodeId) => {
+export const request = async (nodeId) => {
   try {
     const res = await fetch(`${API_END_POINT}/${nodeId ? nodeId : ''}`);
     if (!res.ok) {
@@ -11,5 +11,3 @@ const request = async (nodeId) => {
     throw new Error(`무언가 잘못 되었습니다! ${e.message}`);
   }
 }
-
-export default request;

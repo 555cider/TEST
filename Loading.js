@@ -1,4 +1,4 @@
-export default class Loading {
+export class Loading {
   constructor({ $app, initialState }) {
     this.state = initialState;
 

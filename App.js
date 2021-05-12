@@ -1,12 +1,12 @@
-import Breadcrumb from './Breadcrumb.js';
-import Nodes from './Nodes.js';
-import Loading from './Loading.js';
-import ImageViewer from './ImageView.js';
-import request from './api.js'
+import { Breadcrumb } from './Breadcrumb.js';
+import { Nodes } from './Nodes.js';
+import { Loading } from './Loading.js';
+import { ImageViewer } from './ImageView.js';
+import { request } from './api.js'
 
 const cache = {};
 
-export default class App {
+export class App {
   constructor($app) {
     this.state = {
       isLoading: false,

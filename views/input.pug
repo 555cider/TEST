@@ -1,0 +1,13 @@
+block input
+    section.auth
+        form(action='/auth' method='POST')
+            input#token(type='text' name='token' placeholder='인증 토큰' value=token)
+            button.get-key(type='submit') ▶
+            input.key(type='text' name='key' placeholder='인증 키' value=key readonly)
+
+    if key
+        section.simulate
+            form(action="/simulate" method="put")
+                input#commands(type="text" name="commands" placeholder="명령을 입력하세요.")
+                button.simulate-btn(type='submit') 시뮬레이트
+            div.simulate-result #{simulate}

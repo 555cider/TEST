@@ -26,9 +26,9 @@ body * {
   max-width: 1200px;
 }
 
-/* Dark Theme */
+/* Theme Toggler */
 
-.theme-toggle {
+.theme-toggler {
   font-size: 15px;
   margin: 1%;
 }
@@ -71,10 +71,40 @@ body.dark-theme {
   }
 }
 
+/* Fade in & Fade out */
+
+.fade-in {
+  animation: fadeIn 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Search Section */
 
 .search-section {
-  text-align: center;  
+  text-align: center;
 }
 
 .search-section .search-inp {
@@ -201,7 +231,7 @@ body.dark-theme {
   width: 100%;
 }
 
-/* Modal Sesction */
+/* Modal Section */
 
 .modal-section {
   background-color: rgba(0, 0, 0, 0.5);
@@ -244,35 +274,5 @@ body.dark-theme {
 @media (max-width: 768px) {
   .modal-section .content-wrapper {
     width: 100%;
-  }
-}
-
-/* 페이드 인-아웃 */
-
-.fade-in {
-  animation: fadeIn 3s;
-  animation-fill-mode: forwards;
-}
-
-.fade-out {
-  animation: fadeOut 3s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }

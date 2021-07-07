@@ -2,7 +2,7 @@ import { SearchSection } from "./components/search-section.js";
 import { ResultSection } from "./components/result-section.js";
 import { ModalSection } from "./components/modal-section.js";
 import { BannerSection } from "./components/banner-section.js";
-import { ThemeToggle } from "./utils/theme-toggle.js";
+import { ThemeToggler } from "./utils/theme-toggler.js";
 import { LoadingSpinner } from "./utils/loading-spinner.js";
 import { api } from "./api.js";
 
@@ -52,6 +52,6 @@ export class App {
             data: this.data
         });
 
-        this.$themeToggle = new ThemeToggle($target);
+        this.$themeToggler = new ThemeToggler($target);
     }
 }

@@ -1,4 +1,4 @@
-import { lazyLoading } from "../utils/lazy-loading.js";
+import { lazyLoader } from "../utils/lazy-loader.js";
 
 export class ResultSection {
     constructor({ $target, data, onClick }) {
@@ -54,7 +54,7 @@ export class ResultSection {
             });
 
             if (!('loading' in HTMLImageElement.prototype)) {
-                lazyLoading();
+                lazyLoader();
             }
         }
     }

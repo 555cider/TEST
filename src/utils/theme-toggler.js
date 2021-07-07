@@ -1,4 +1,4 @@
-export class ThemeToggle {
+export class ThemeToggler {
     constructor($target) {
         this.$theme = document.createElement("div");
         this.$theme.className = "theme-toggle";

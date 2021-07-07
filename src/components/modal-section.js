@@ -8,22 +8,22 @@ export class ModalSection {
 
         $target.appendChild(this.$modal);
 
-        document.body.addEventListener("keyup", (e) => {
+        this.$modal.addEventListener("keyup", (e) => {
             if (e.code == "Escape") {
                 this.$modal.querySelector("article").classList.remove("fade-in");
                 this.$modal.querySelector("article").classList.add("fade-out");
                 setTimeout(() => {
                     this.$modal.style.display = "none";
-                }, 1000);
+                }, 500);
             }
         });
-        document.body.addEventListener("click", (e) => {
+        this.$modal.addEventListener("click", (e) => {
             if (e.target.className === "modal-section" || e.target.className === "close") {
                 this.$modal.querySelector("article").classList.remove("fade-in");
                 this.$modal.querySelector("article").classList.add("fade-out");
                 setTimeout(() => {
                     this.$modal.style.display = "none";
-                }, 1500);
+                }, 500);
             }
         });
     }
@@ -37,7 +37,7 @@ export class ModalSection {
         const { name, url, temperament, origin } = this.data;
         const contentWrapper = document.createElement("article");
         contentWrapper.className = "content-wrapper fade-in";
-        contentWrapper.innerHTML += `<div class="title"><span>${name}</span><div class="close">x</div></div>`;
+        contentWrapper.innerHTML += `<h3 class="title">${name}</h3><button class="close">x</button>`;
         contentWrapper.innerHTML += `<img src="${url}" alt="${name}"/>`;
         contentWrapper.innerHTML += `<div class="description"><span>성격: ${temperament}</span><br><span>태생: ${origin}</span></div>`;
         if (this.$modal.contains(document.querySelector(".content-wrapper"))) {

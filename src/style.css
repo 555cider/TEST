@@ -74,12 +74,12 @@ body.dark-theme {
 /* Fade in & Fade out */
 
 .fade-in {
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
   animation-fill-mode: forwards;
 }
 
 .fade-out {
-  animation: fadeOut 1.5s;
+  animation: fadeOut 0.5s;
   animation-fill-mode: forwards;
 }
 
@@ -144,7 +144,7 @@ body.dark-theme {
   width: 100%;
 }
 
-.banner-section img.current {
+.banner-section img.active {
   display: block;
 }
 
@@ -188,7 +188,7 @@ body.dark-theme {
   transition: background-color 0.6s ease;
 }
 
-.banner-section .banner-dots .current,
+.banner-section .banner-dots .active,
 .banner-dot:hover {
   background-color: #000;
 }
@@ -255,6 +255,7 @@ body.dark-theme {
 
 .modal-section .close {
   cursor: pointer;
+  float: right;
 }
 
 .modal-section .content-wrapper {

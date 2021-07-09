@@ -7,7 +7,21 @@ export class ImageViewer {
 
     this.$target = document.createElement("div");
     this.$target.className = "Modal ImageViewer";
+
     $app.appendChild(this.$target);
+
+    this.$target.addEventListener("click", (e) => {
+      const imageModal = document.querySelector(".ImageViewer");
+      imageModal.childNodes.forEach(e => e.remove());
+      imageModal.style.display = "none";
+    });
+    document.body.addEventListener("keyup", (e) => {
+      if (e.code === "Escape") {
+        const imageModal = document.querySelector(".ImageViewer");
+        imageModal.childNodes.forEach(e => e.remove());
+        imageModal.style.display = "none";
+      }
+    });
   }
 
   setState(nextState) {
@@ -16,16 +30,10 @@ export class ImageViewer {
   }
 
   render() {
-    this.$target.innerHTML = `<div class="content">${
-      this.state.filePath
-        ? `<img src="${IMAGE_PATH_PREFIX}${this.state.filePath}">`
-        : ""
-    }</div>`;
+    this.$target.innerHTML = `<div class="content">${this.state.filePath
+      ? `<img src="${IMAGE_PATH_PREFIX}${this.state.filePath}">`
+      : ""
+      }</div>`;
     this.$target.style.display = this.state.filePath ? "block" : "none";
-    this.$target.addEventListener("click", function (e) {
-      const imageModal = document.querySelector(".ImageViewer");
-      imageModal.removeChild(imageModal.firstChild);
-      document.querySelector(".ImageViewer").style.display = "none";
-    });
   }
 }

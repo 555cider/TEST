@@ -11,8 +11,11 @@ html(lang="en")
     if key
       include simulate.pug
     br
-    if locations 
-      include locations.pug
-    br
-    if trucks
-      include trucks.pug
+    if key 
+      include map.pug
+    //- br
+    //- if locations 
+    //-   include locations.pug
+    //- br
+    //- if trucks
+    //-   include trucks.pug

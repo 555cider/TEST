@@ -1,0 +1,13 @@
+//- extends layout.pug
+
+block locations
+  section.locations
+    h2 대여소
+    table(style='width:100%' border='1').locations-result
+      tr 
+        th ID 
+        th Located Bike Count 
+      for location of locations
+        tr
+          td= location.id
+          td= location.located_bikes_count

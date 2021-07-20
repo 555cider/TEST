@@ -1,0 +1,10 @@
+//- extends layout.pug
+
+block simulate
+  section.simulate
+    h3 시뮬레이트
+    form#simulate(action='/simulate' method='PUT')
+      input.key(name='key' value=key hidden)
+      input#commands(type='text' name='commands' placeholder='명령을 입력하세요.')
+      input.simulate-btn(type='submit' value="시뮬레이트")
+    div.simulate-result #{simulate}

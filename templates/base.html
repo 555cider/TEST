@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<head>
+  <title>도서 대여 서비스</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+  <nav>
+    <a href="{{ url_for('book.get_list') }}">도서 대여 서비스</a>
+    <ul>
+      <li><a href="{{ url_for('rental.get_returned') }}">대여기록</a></li>
+      <li><a href="{{ url_for('rental.get_rented') }}">반납하기</a></li>
+      {% if 'user_id' in session %}
+      <li><a href="{{ url_for('auth.get_logout') }}">로그아웃</a></li>
+      {% else %}
+      <li><a href="{{ url_for('auth.get_login') }}">로그인</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  <hr>
+  <div class="container">{% block container %}{% endblock %}</div>
+</body>
+
+</html>

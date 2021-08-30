@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block container %}
+<script>
+  function handleClick(event) {
+    const init = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 'id': event.target.name })
+    };
+
+    fetch('/rental/return', init)
+      .then(res => res.json())
+      .then(myjson => {
+        alert(myjson['message']);
+        event.target.disabled = true;
+        event.target.innerText = '반납 완료';
+      });
+  }
+</script>
+
+{% if book_list %}
+<div class="book-list">
+  {% for book in book_list %}
+  <div class="book-list-book">
+    <div class="book-list-img" style="background-image: url({{ book.cover }})">
+    </div>
+    <p> <a href="/book/detail?isbn={{ book.isbn }}">{{ book.title }}</a> </p>
+    <p>
+      {% for star in range(book.rating|int) %} ★ {% endfor %}
+      {% for star in range(5 - book.rating|int) %} ☆ {% endfor %}
+    </p>
+    <p>대여일: {{ book.rented_date.strftime('%Y년 %m월 %d일') }}</p>
+    <button name={{ book.id }} onclick="handleClick(event)">반납하기</button>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="book-list-nothing">
+  <p>대여 중인 책이 없습니다.</p>
+</div>
+{% endif %}
+{% endblock %}

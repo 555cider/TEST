@@ -2,14 +2,11 @@
 
 {% block container %}
 
-<div class="card-header">
-  <h3 class="card-title">검색</h3>
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search for...">
-    <span class="input-group-append">
-      <button class="btn btn-primary" id="btn-search" type="button">Go!</button>
-    </span>
-  </div>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Search for...">
+  <span class="input-group-append">
+    <button class="btn btn-primary" id="btn-search" type="button">Go!</button>
+  </span>
 </div>
 
 <div class="row">
@@ -144,11 +141,11 @@
   </div>
 </div>
 
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">관련 통계</h3>
+<div>
+  <div>
+    <h3>관련 통계</h3>
   </div>
-  <div class="card-body">
+  <div>
     <input type="radio" id="rdb-district" name="condition" checked>
     <label for="rdb-district">지역별</label>
     <input type="radio" id="rdb-menu" name="condition">
@@ -157,11 +154,11 @@
   </div>
 </div>
 
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">업체 목록</h3>
+<div>
+  <div>
+    <h3>업체 목록</h3>
   </div>
-  <div class="card-body">
+  <div>
     <table id="tbl-restaurant"> </table>
   </div>
 </div>

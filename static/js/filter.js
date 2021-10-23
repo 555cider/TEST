@@ -17,7 +17,7 @@ function postFilter() {
     },
     dataType: 'JSON',
     success: function (response) {
-      setChart(response["chart_data"], response["total"]);
+      // setChart(response["chart_data"], response["total"]);
       response["result"].forEach(e => {
         tblRestaurant.innerHTML += `
             <tr>

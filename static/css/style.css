@@ -1,0 +1,30 @@
+@import url(/static/fonts/elice/EliceDigitalBaeum_Bold.ttf);
+@import url(/static/fonts/elice/EliceDigitalBaeum_Regular.ttf);
+
+html,
+body {
+  font-family: "EliceDigitalBaeum_Bold", "EliceDigitalBaeum_Regular", sans-serif !important;
+}
+
+/*리스트아이템 데코없애기*/
+.myli:nth-last-child(1) {
+  text-decoration: none;
+  list-style     : none;
+  color          : black;
+  font-size      : large;
+}
+
+#myli-2:nth-last-child(1) {
+  list-style     : none;
+  text-decoration: none;
+  color          : black;
+  font-size      : large;
+}
+
+.district-img {
+  cursor: pointer;
+}
+
+#tbl-restaurant {
+  width: 100%;
+}

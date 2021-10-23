@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+  <title>배달 서비스 분석 3팀</title>
+  <meta charset="UTF-8">
+  <link href="/static/css/style.css" rel="stylesheet" />
+  <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+  <script src="/static/js/require.min.js"></script>
+  <script>
+    requirejs.config({
+      baseUrl: '.'
+    });
+  </script>
+  <!-- Dashboard Core -->
+  <link href="/static/css/dashboard.css" rel="stylesheet" />
+  <script src="/static/js/dashboard.js"></script>
+  <!-- c3.js Charts Plugin -->
+  <link href="/static/plugins/charts-c3/plugin.css" rel="stylesheet" />
+  <script src="/static/plugins/charts-c3/plugin.js"></script>
+  <!-- Input Mask Plugin -->
+  <script src="/static/plugins/input-mask/plugin.js"></script>
+</head>
+
+<body>
+  <nav class="container">
+    <ul class="nav nav-tabs border-0">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('index')}}">
+          <i class="fas fa-home" style="margin-right: 4px;"></i>홈으로</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('get_intro')}}"><i
+            class="fas fa-user-circle" style="margin-right: 4px;"></i>서비스소개</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('get_search') }}"><i
+            class="fas fa-search" style="margin-right: 4px;"></i>검색</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('get_summary') }}"><i
+            class="fas fa-list-ol" style="margin-right: 4px;"></i>요약</a>
+      </li>
+    </ul>
+  </nav>
+
+  <hr>
+  <div class="container">
+    {% block container %}
+    {% endblock %}
+  </div>
+  <hr>
+
+  <footer class="container">
+    <div class="row flex-row-reverse">
+      <div class="col-auto ml-lg-auto">
+        <ul class="nav nav-tabs border-0">
+          <li class="nav-item">국**</li>
+          <li class="nav-item">김**</li>
+          <li class="nav-item">본인</li>
+        </ul>
+      </div>
+      <div>
+        <p>배달서비스 3팀</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

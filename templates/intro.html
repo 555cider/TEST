@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<div class="page-main">
+  <div class="my-3 my-md-5">
+    <form action="https://httpbin.org/post" method="post" class="card">
+      <div class="card-header align-self-center"
+        style="border-radius: 1px; max-height: 180px;height: 170px;">
+        <h1 class="card-title text-center" style="color: rgb(0, 0, 0);
+            font-size: 30px;">배달서비스 3팀 서비스 소개 </h1>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4 col-lg-3"></div>
+          <div class="col-md-4 col-lg-3" style="position: fixed;">
+            <ol>
+              <li>
+                <a href="#index1">서비스 소개</a>
+              </li>
+              <br>
+              <li>
+                <a href="#index2">팀 소개</a>
+              </li>
+              <br>
+              <li>
+                <a href="#index3">사용 툴</a>
+              </li>
+              <br>
+              <li>
+                <a href="#index4">사용 데이터</a>
+              </li>
+              <br>
+              <li>
+                <a href="#index5">진행상황</a>
+              </li>
+              <br>
+            </ol>
+          </div>
+
+          <div class="col-md-8 col-lg-9">
+            <h3 id=index1>1. 서비스 소개</h3>
+            <p> 주제: 수도권 내 예비 창업자를 위한 지역별 경쟁업체 분포 분석 </p>
+            <p> 서비스대상자: 예비창업자 </p>
+            <p> 얻고자 하는 인사이트: 지역별 업체 분포 쉽게 검색 </p>
+            <p> 보여주고자 하는 것: 지역별 업태, 사업장명, 소재지 면적, 좌표, 인허가일자&폐업일자, 면적별 업태별 존속기간
+            </p>
+            <p>스토리보드:</p>
+            <img src="/static/img/storybo.png" alt="">
+            <br>
+            <hr>
+            <h3 id=index2>2. 팀 소개</h3>
+            <table border="2" width="400" height="200" align="center"
+              bgcolor="">
+              <tr align="center" bgcolor="wheat">
+                <td>이름</td>
+                <td>역할</td>
+              </tr>
+              <tr align="center">
+                <td>국**</td>
+                <td>데이터분석</td>
+              </tr>
+              <tr align="center">
+                <td>김**</td>
+                <td>프론트엔드</td>
+              </tr>
+              <tr align="center">
+                <td>본인</td>
+                <td>백엔드</td>
+              </tr>
+            </table>
+            <br>
+            <hr>
+
+            <h3 id=index3>3. 사용 툴</h3>
+            <table border="2" width="400" height="180" align="center"
+              bgcolor="">
+              <tr align="center">
+                <!-- 첫번째 줄 시작 -->
+                <td>데이터분석</td>
+                <td>SQLDEVELOPER, 테블로</td>
+              </tr><!-- 첫번째 줄 끝 -->
+              <tr align="center">
+                <!-- 두번째 줄 시작 -->
+                <td>프론트엔드</td>
+                <td>자바스크립트, VScode</td>
+              </tr><!-- 두번째 줄 끝 -->
+              <tr align="center">
+                <!-- 세번째 줄 시작 -->
+                <td>백엔드</td>
+                <td>파이썬(MongoDB, Flask)</td>
+              </tr><!-- 세번째 줄 끝 -->
+            </table>
+            <br>
+            <hr>
+
+            <h3 id=index4>4. 사용데이터</h3>
+            <span>
+              서울특별시 일반 음식점 인허가 정보:
+              <a href="https://data.seoul.go.kr/dataList/OA-16094/A/1/datasetView.do;jsessionid=F64EF0EE3383EA9A6CD3009A73448EB6.new_portal-svr-21"
+                target="_blank">
+                링크</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  require(['jquery', 'selectize'], function ($, selectize) {
+    $(document).ready(function () {
+      $('#input-tags').selectize({
+        delimiter: ',',
+        persist: false,
+        create: function (input) {
+          return {
+            value: input,
+            text: input
+          }
+        }
+      });
+
+      $('#select-beast').selectize({});
+
+      $('#select-users').selectize({
+        render: {
+          option: function (data, escape) {
+            return '<div>' +
+              '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+              '<span class="title">' + escape(data.text) + '</span>' +
+              '</div>';
+          },
+          item: function (data, escape) {
+            return '<div>' +
+              '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+              escape(data.text) +
+              '</div>';
+          }
+        }
+      });
+
+      $('#select-countries').selectize({
+        render: {
+          option: function (data, escape) {
+            return '<div>' +
+              '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+              '<span class="title">' + escape(data.text) + '</span>' +
+              '</div>';
+          },
+          item: function (data, escape) {
+            return '<div>' +
+              '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+              escape(data.text) +
+              '</div>';
+          }
+        }
+      });
+    });
+  });
+</script>
+
+{% endblock %}

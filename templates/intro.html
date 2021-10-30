@@ -2,17 +2,15 @@
 
 {% block container %}
 
-<div class="page-main">
-  <div class="my-3 my-md-5">
-    <div class="align-self-center"
-      style="border-radius: 1px; max-height: 180px;height: 170px;">
-      <h1 class="text-center" style="color: rgb(0, 0, 0);
+<div class="card">
+  <div class="card-header">
+    <h1 calss="card-title" class="text-center" style="color: rgb(0, 0, 0);
             font-size: 30px;">배달서비스 3팀 서비스 소개 </h1>
-    </div>
+  </div>
+  <div class="card-body card-group">
     <div class="row">
-      <div class="col-md-4 col-lg-3"></div>
-      <div class="col-md-4 col-lg-3" style="position: fixed;">
-        <ol>
+      <nav class="col-lg-2">
+        <ol style="position: fixed;">
           <li>
             <a href="#index1">서비스 소개</a>
           </li>
@@ -29,69 +27,99 @@
             <a href="#index4">사용 데이터</a>
           </li>
         </ol>
-      </div>
+      </nav>
 
-      <div class="col-md-8 col-lg-9">
-        <h3 id=index1>1. 서비스 소개</h3>
-        <p> 주제: 수도권 내 예비 창업자를 위한 지역별 경쟁업체 분포 분석 </p>
-        <p> 서비스대상자: 예비창업자 </p>
-        <p> 얻고자 하는 인사이트: 지역별 업체 분포 쉽게 검색 </p>
-        <p> 보여주고자 하는 것: 지역별 업태, 사업장명, 소재지 면적, 좌표, 인허가일자&폐업일자, 면적별 업태별 존속기간
-        </p>
-        <p>스토리보드:</p>
-        <img src="/static/img/story_board.png" alt="">
-        <br>
-        <hr>
-        <h3 id=index2>2. 팀 소개</h3>
-        <table border="2" width="400" height="200" align="center" bgcolor="">
-          <tr align="center" bgcolor="wheat">
-            <td>이름</td>
-            <td>역할</td>
-          </tr>
-          <tr align="center">
-            <td>국**</td>
-            <td>데이터분석</td>
-          </tr>
-          <tr align="center">
-            <td>김**</td>
-            <td>프론트엔드</td>
-          </tr>
-          <tr align="center">
-            <td>본인</td>
-            <td>백엔드</td>
-          </tr>
-        </table>
-        <br>
-        <hr>
+      <div class="col-lg-10">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-subtitle" id=index1>1. 서비스 소개</h3>
+          </div>
+          <div class="card-body">
+            <p> 주제: 수도권 내 예비 창업자를 위한 지역별 경쟁업체 분포 분석 </p>
+            <p> 서비스대상자: 예비창업자 </p>
+            <p> 얻고자 하는 인사이트: 지역별 업체 분포 쉽게 검색 </p>
+            <p> 보여주고자 하는 것: 지역별 업태, 사업장명, 소재지 면적, 좌표, 인허가일자&폐업일자, 면적별 업태별 존속기간
+            </p>
+            <img src="/static/img/intro_storyboard.png" class="img-thumbnail"
+              alt="storyboard">
+          </div>
+        </div>
 
-        <h3 id=index3>3. 사용 툴</h3>
-        <table border="2" width="400" height="180" align="center" bgcolor="">
-          <tr align="center">
-            <!-- 첫번째 줄 시작 -->
-            <td>데이터분석</td>
-            <td>Tabler</td>
-          </tr><!-- 첫번째 줄 끝 -->
-          <tr align="center">
-            <!-- 두번째 줄 시작 -->
-            <td>프론트엔드</td>
-            <td>c3.js</td>
-          </tr><!-- 두번째 줄 끝 -->
-          <tr align="center">
-            <!-- 세번째 줄 시작 -->
-            <td>백엔드</td>
-            <td>Flask, MongoDB</td>
-          </tr><!-- 세번째 줄 끝 -->
-        </table>
-        <br>
-        <hr>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-subtitle" id=index2>2. 팀 소개</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover" width="400"
+              height="200">
+              <thead>
+                <tr>
+                  <th>이름</th>
+                  <th>역할</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>국**</td>
+                  <td>데이터분석</td>
+                </tr>
+                <tr>
+                  <td>김**</td>
+                  <td>프론트엔드</td>
+                </tr>
+                <tr>
+                  <td>본인</td>
+                  <td>백엔드</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-        <h3 id=index4>4. 사용데이터</h3>
-        <span>
-          서울특별시 일반 음식점 인허가 정보:
-          <a href="https://data.seoul.go.kr/dataList/OA-16094/A/1/datasetView.do;jsessionid=F64EF0EE3383EA9A6CD3009A73448EB6.new_portal-svr-21"
-            target="_blank">
-            링크</a>
-        </span>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-subtitle" id=index3>3. 사용 툴</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover" width="400"
+              height="180">
+              <thead>
+                <tr>
+                  <th>파트</th>
+                  <th>프로그램</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>데이터분석</td>
+                  <td>Tabler</td>
+                </tr>
+                <tr>
+                  <td>프론트엔드</td>
+                  <td>c3.js</td>
+                </tr>
+                <tr>
+                  <td>백엔드</td>
+                  <td>Flask, MongoDB</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-subtitle" id=index4>4. 사용데이터</h3>
+          </div>
+          <div class="card-body">
+            <span>
+              서울특별시 일반 음식점 인허가 정보:
+              <a href="https://data.seoul.go.kr/dataList/OA-16094/A/1/datasetView.do;jsessionid=F64EF0EE3383EA9A6CD3009A73448EB6.new_portal-svr-21"
+                target="_blank">
+                링크</a>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

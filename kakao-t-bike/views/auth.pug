@@ -1,0 +1,9 @@
+//- extends layout.pug
+
+block auth
+    section.auth
+        h3 인증
+        form#auth(action='/auth' method='POST')
+            input#token(type='text' name='token' placeholder='인증 토큰' value=token)
+            input#auth-btn(type="submit" value="▶")
+            input.key(type='text' name='key' placeholder='인증 키' value=key readonly)

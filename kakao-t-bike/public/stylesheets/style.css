@@ -1,0 +1,15 @@
+* {
+  font-size: x-large;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.auth form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+}
+
+.simulate form {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}

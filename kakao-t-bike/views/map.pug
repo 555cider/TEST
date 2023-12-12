@@ -1,0 +1,21 @@
+//- extends layout.pug
+- let row= 0;
+- let col= 0;
+
+block map
+  section.map
+    h2 지도
+    table(style='width:100%' border='1').trucks-result
+      tr
+        td ＼
+        while col < 5
+          td= col++
+      - i = 0
+      while i < 5
+        tr
+          td= row++
+          - j = 0
+          while j < 5
+            td= locations[i + j*5].located_bikes_count + '(' + locations[i + j*5].id + ')'
+            - j++
+        - i++

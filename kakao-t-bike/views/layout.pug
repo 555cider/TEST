@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title 카카오T바이크
+    link(rel='stylesheet' href='./stylesheets/style.css')  
+  body
+    include auth.pug
+    br
+    if key
+      include simulate.pug
+    br
+    if key 
+      include map.pug
+    //- br
+    //- if locations 
+    //-   include locations.pug
+    //- br
+    //- if trucks
+    //-   include trucks.pug

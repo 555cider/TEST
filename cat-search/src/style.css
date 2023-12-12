@@ -1,0 +1,279 @@
+/* @font-face {
+  font-family: 'Goyang';
+  src: url(fonts/Goyang.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body * {
+  /* font-family: Goyang; */
+  transition: background 500ms ease-in-out, color 200ms ease;
+}
+
+#app {
+  column-gap: 1.5em;
+  margin: 1.5em auto;
+  max-width: 1200px;
+}
+
+/* Theme Toggler */
+
+.theme-toggler {
+  font-size: 15px;
+  margin: 1%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+body.light-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+body.dark-theme {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Loading Spinner */
+
+.spinner {
+  animation: spin 1s linear infinite;
+  border: 50px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 50px solid #3498db;
+  height: 200px;
+  margin: 5% auto;
+  width: 200px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade in & Fade out */
+
+.fade-in {
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Search Section */
+
+.search-section {
+  text-align: center;
+}
+
+.search-section .search-inp {
+  font-size: 35px;
+  padding: 10px 15px;
+  margin-right: 2%;
+  width: 80%;
+}
+
+.search-section .random-btn {
+  font-size: 35px;
+  padding: 5px;
+}
+
+.search-section .recent {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+/* Banner Section */
+
+.banner-section {
+  height: 200px;
+  margin: 2% 1%;
+  position: relative;
+}
+
+.banner-section .banner-imgs {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.banner-section .banner-img {
+  display: none;
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.banner-section img.active {
+  display: block;
+}
+
+.banner-section #prev-btn,
+#next-btn {
+  border: #000 solid 5px;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: bold;
+  margin: -2% 2% 0 2%;
+  padding: 5px;
+  top: 50%;
+  transition: 0.5s ease;
+}
+
+.banner-section #next-btn {
+  right: 2%;
+}
+
+.banner-section #prev-btn:hover,
+#next-btn:hover {
+  transform: scale(1.1);
+}
+
+.banner-section .banner-dots {
+  position: absolute;
+  text-align: center;
+  top: 85%;
+  width: 100%;
+}
+
+.banner-section .banner-dot {
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 2px;
+  padding: 7px;
+  transition: background-color 0.6s ease;
+}
+
+.banner-section .banner-dots .active,
+.banner-dot:hover {
+  background-color: #000;
+}
+
+/* Result Section */
+
+.result-section .notice {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.result-section {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1% 1%;
+}
+
+@media (max-width: 992px) {
+  .result-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .result-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .result-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.result-section img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Modal Section */
+
+.modal-section {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #000;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+.modal-section .title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-section .title,
+.modal-section .description {
+  padding: 5px;
+}
+
+.modal-section .close {
+  cursor: pointer;
+  float: right;
+}
+
+.modal-section .content-wrapper {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-section .content-wrapper img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .modal-section .content-wrapper {
+    width: 100%;
+  }
+}

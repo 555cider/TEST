@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='/static/css/main.css' type='text/css' />
+    <script type='text/javascript' src='/static/js/main.js'></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="title-area">
+            <a href="/index.html" class="iflex">
+                <img class="logo" src="https://placehold.co/240x240?text=Logo">
+                <h6 class="header-title bold">Left Nav</h6>
+            </a>
+        </div>
+        <nav id="top-nav">
+            <button id="open-top-nav-menu">
+                <img src="/static/img/menu_FILL0_wght400_GRAD0_opsz24.svg">
+            </button>
+            <div id="top-nav-menu" class="hidden">
+                <button id="close-top-nav-menu">
+                    <img src="/static/img/close_FILL0_wght400_GRAD0_opsz24.svg">
+                </button>
+                <ul class="top-nav-list">
+                    <li class="top-nav-item">
+                        <a href="/index.html" aria-current="page">home</a>
+                    </li>
+                    <li class="top-nav-item">
+                        <a href="/index.html">main menu</a>
+                        <ul class="sub-menu">
+                            <li class="top-nav-item">
+                                <a href="/index.html">sub menu</a>
+                            </li>
+                            <li class="top-nav-item">
+                                <a href="/index.html">sub menu</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="top-nav-item menu-item-type-custom menu-item-object-custom">
+                        <a href="/index.html">main menu</a>
+                    </li>
+                    <li class="top-nav-item menu-item-type-post_type menu-item-object-page">
+                        <a href="/index.html">main menu</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <component id="intro" path="/templates/partials/intro.html"></component>
+    <component id="solution" path="/templates/partials/solution.html"></component>
+    <iframe id="profile" src="/templates/partials/profile.html"></iframe>
+    <component id="contact" path="/templates/partials/contact.html"></component>
+    <iframe id="location" src="/templates/partials/location.html"></iframe>
+
+    <component id="footer" path="/templates/layout/footer.html"></component>
+</body>
+
+</html>
+
+<script>
+    insertComponentsByPath();
+</script>
+
+<link rel='stylesheet' href='/static/css/header.css' type='text/css' />
+<script type='text/javascript' src='/static/js/header.js'></script>

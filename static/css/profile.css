@@ -1,0 +1,56 @@
+@import "/static/css/main.css";
+
+.profile-swiper {
+    width: 75%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.profile-swiper>div {
+    display: flex;
+}
+
+.profile-swiper>div:first-child {
+    padding-bottom: 20px;
+    border-bottom: 2px solid;
+    justify-content: space-between;
+}
+
+.profile-swiper>div img {
+    width: 50%;
+    align-self: center;
+}
+
+.profile-swiper>div:first-child>div {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.profile-swiper>div:last-child>div {
+    width: 50%;
+}
+
+.swiper-wrapper {
+    height: 75%;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    .profile-swiper {
+        width: 100%;
+        background-color: #f5f5f5;
+        flex-direction: column;
+    }
+
+    .profile-swiper>div:first-child {
+        justify-content: space-around;
+    }
+
+    .profile-swiper>div img {
+        width: 50%;
+    }
+
+    .profile-swiper>div:last-child>div:first-child {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block container %}
+
+<div class="card">
+  <div class="card-header">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-append">
+        <button class="btn btn-primary" id="btn-search"
+          type="button">Go!</button>
+      </span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-8">
+        <img src="/static/img/seoul_map.gif" usemap="#map" alt="서울시 자치구 지도">
+        <map class="district-img" id="map" name="map">
+          <area class="district-img" shape="rect" coords="283,62,317,77"
+            title="도봉구">
+          <area class="district-img" shape="rect" coords="260,92,294,108"
+            title="강북구">
+          <area class="district-img" shape="rect" coords="325,80,362,95"
+            title="노원구">
+          <area class="district-img" shape="rect" coords="170,110,206,127"
+            title="은평구">
+          <area class="district-img" shape="rect" coords="260,138,298,154"
+            title="성북구">
+          <area class="district-img" shape="rect" coords="344,145,382,162"
+            title="중랑구">
+          <area class="district-img" shape="rect" coords="171,170,220,187"
+            title="서대문구">
+          <area class="district-img" shape="rect" coords="226,162,262,178"
+            title="종로구">
+          <area class="district-img" shape="rect" coords="298,163,342,179"
+            title="동대문구">
+          <area class="district-img" shape="rect" coords="58,185,92,204"
+            title="강서구">
+          <area class="district-img" shape="rect" coords="150,190,190,207"
+            title="마포구">
+          <area class="district-img" shape="rect" coords="245,191,272,207"
+            title="중구">
+          <area class="district-img" shape="rect" coords="289,199,324,215"
+            title="성동구">
+          <area class="district-img" shape="rect" coords="226,226,261,242"
+            title="용산구">
+          <area class="district-img" shape="rect" coords="334,211,372,227"
+            title="광진구">
+          <area class="district-img" shape="rect" coords="393,201,430,217"
+            title="강동구">
+          <area class="district-img" shape="rect" coords="93,239,133,258"
+            title="양천구">
+          <area class="district-img" shape="rect" coords="146,237,189,253"
+            title="영등포구">
+          <area class="district-img" shape="rect" coords="188,260,226,277"
+            title="동작구">
+          <area class="district-img" shape="rect" coords="250,281,290,298"
+            title="서초구">
+          <area class="district-img" shape="rect" coords="299,264,336,281"
+            title="강남구">
+          <area class="district-img" shape="rect" coords="356,251,393,269"
+            title="송파구">
+          <area class="district-img" shape="rect" coords="85,272,122,290"
+            title="구로구">
+          <area class="district-img" shape="rect" coords="137,298,175,315"
+            title="금천구">
+          <area class="district-img" shape="rect" coords="190,306,226,323"
+            title="관악구">
+        </map>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label class="form-label">지역(구)</label>
+          <select class="form-control" id="sel-district-gu" name="district-gu">
+            <option value=""></option>
+            <option value="강남구">강남구</option>
+            <option value="강동구">강동구</option>
+            <option value="강북구">강북구</option>
+            <option value="강서구">강서구</option>
+            <option value="관악구">관악구</option>
+            <option value="광진구">광진구</option>
+            <option value="구로구">구로구</option>
+            <option value="금천구">금천구</option>
+            <option value="노원구">노원구</option>
+            <option value="도봉구">도봉구</option>
+            <option value="동대문구">동대문구</option>
+            <option value="동작구">동작구</option>
+            <option value="마포구">마포구</option>
+            <option value="서대문구">서대문구</option>
+            <option value="서초구">서초구</option>
+            <option value="성동구">성동구</option>
+            <option value="성북구">성북구</option>
+            <option value="송파구">송파구</option>
+            <option value="양천구">양천구</option>
+            <option value="영등포구">영등포구</option>
+            <option value="용산구">용산구</option>
+            <option value="은평구">은평구</option>
+            <option value="종로구">종로구</option>
+            <option value="중구">중구</option>
+            <option value="중랑구">중랑구</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">지역(동)</label>
+          <select class="form-control" id="sel-district-dong"
+            name="district-dong">
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">메뉴(대분류)</label>
+          <select class="form-control" id="sel-menu-main" name="menu-main">
+            <option value=""></option>
+            <option value="한식">한식</option>
+            <option value="패스트푸드">패스트푸드</option>
+            <option value="카페">카페</option>
+            <option value="아시아음식">아시아음식</option>
+            <option value="중식">중식</option>
+            <option value="주점">주점</option>
+            <option value="제과점">제과점</option>
+            <option value="일식">일식</option>
+            <option value="양식">양식</option>
+            <option value="분식">분식</option>
+            <option value="기타 외국식">기타 외국식</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">메뉴(중분류)</label>
+          <select class="form-control" id="sel-menu-sub" name="menu-sub">
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="d-flex">
+          <button type="button" class="btn btn-primary" id="btn-filter">해당
+            조건으로 검색</button>
+          <button type="reset" class="btn btn-link" id="btn-reset">조건
+            초기화</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-group">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-subtitle">관련 통계</h3>
+      </div>
+      <div class="card-body">
+        <input type="radio" id="rdb-district" name="condition" checked>
+        <label for="rdb-district">지역별</label>
+        <input type="radio" id="rdb-menu" name="condition">
+        <label for="rdb-menu">메뉴별</label>
+        <div id="chart" style="height: 16rem"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-subtitle">업체 목록</h3>
+      </div>
+      <div class="card-body">
+        <table id="tbl-restaurant"> </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 변수 지정
+  rdbDistrict = document.querySelector("#rdb-district");
+  rdbMenu = document.querySelector("#rdb-menu");
+  menuMain = document.querySelector('#sel-menu-main');
+  menuSub = document.querySelector('#sel-menu-sub');
+  districtGu = document.querySelector('#sel-district-gu');
+  districtDong = document.querySelector('#sel-district-dong');
+  btnFilter = document.querySelector("#btn-filter");
+  btnReset = document.querySelector("#btn-reset");
+  tblRestaurant = document.querySelector("#tbl-restaurant");
+</script>
+<script src="/static/js/category.js"></script>
+<script src="/static/js/chart.js"></script>
+<script src="/static/js/filter.js"></script>
+
+{% endblock %}

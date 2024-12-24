@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block container %}
+<script>
+  function handleClick(event) {
+    const init = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 'isbn': event.target.name })
+    };
+
+    fetch('/rental/rental', init)
+      .then(res => res.json())
+      .then(myjson => {
+        alert(myjson['message']);
+        event.target.disabled = true;
+        event.target.innerText = '대여 중';
+      });
+  }
+</script>
+
+{% if book_list %}
+<div class="book-list">
+  {% for book in book_list %}
+  <div class="book-list-book">
+    <div class="book-list-img" style="background-image: url({{ book.cover }})">
+    </div>
+    <p><a href="detail?isbn={{ book.isbn }}">{{ book.title }}</a></p>
+    <p>
+      {% for star in range(book.rating|int) %} ★ {% endfor %}
+      {% for star in range(5 - book.rating|int) %} ☆ {% endfor %}
+    </p>
+    <p>{{ book.qty_left if book.qty_left != None else 0 }} / {{ book.qty_all }}권
+    </p>
+    {% if book.qty_left > 0 %}
+    <button name={{ book.isbn }} onclick=handleClick(event)>대여하기</button>
+    {% else %}
+    <button disabled>대출 불가</button>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% set curr_page, page_cnt = page_info %}
+
+  {% if curr_page == 0 %}
+  <a>&laquo;</a>
+  {% else %}
+  <a href="list?page={{ curr_page-1 }}">&laquo;</a>
+  {% endif %}
+
+  {% for page in page_list %}
+  {% if page == curr_page %}
+  <a class="active" diabled=true>{{ page+1 }}</a>
+  {% else %}
+  <a href="list?page={{ page }}">{{ page+1 }}</a>
+  {% endif %}
+  {% endfor %}
+
+  {% if curr_page == page_cnt-1 %}
+  <a>&raquo;</a>
+  {% else %}
+  <a href="list?page={{ curr_page+1 }}">&raquo;</a>
+  {% endif %}
+</div>
+
+{% else %}
+<div class="book-list-nothing">
+  <p>책이 없습니다.</p>
+</div>
+{% endif %}
+{% endblock %}

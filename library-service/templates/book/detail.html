@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block container %}
+<section>
+  <h2>도서 정보</h2>
+  <table class="book-detail-tbl">
+    <tr>
+      <td rowspan="6" class="book-detail-img-div">
+        <img class="book-detail-img" src={{ book.cover }} alt="도서 커버 이미지">
+      </td>
+      <td>책이름</td>
+      <td>{{ book.title }}</td>
+    </tr>
+    <tr>
+      <td>출판사</td>
+      <td>{{ book.publisher }}</td>
+    </tr>
+    <tr>
+      <td>저자</td>
+      <td>{{ book.author }}</td>
+    </tr>
+    <tr>
+      <td>출간일</td>
+      <td>{{ book.published_date }}</td>
+    </tr>
+    <tr>
+      <td>페이지 수</td>
+      <td>{{ book.pages }}</td>
+    </tr>
+    <tr>
+      <td>ISBN 코드</td>
+      <td>{{ book.isbn }}</td>
+    </tr>
+  </table>
+</section>
+
+<section class="book-detail-descr">
+  <h2>도서 소개</h2>
+  <div>{{ book.description }}</div>
+</section>
+
+<section>
+  <h2>도서 댓글</h2>
+  <form action="/book/comment" method="POST">
+    <div class="book-detail-comment">
+      <input name="isbn" value={{ book.isbn }} hidden />
+      <div class="book-detail-comment-comment">
+        <input name="comment" required />
+      </div>
+      <div class="book-detail-comment-rating">
+        <select name="rating" required>
+          <option value=0>☆☆☆☆☆</option>
+          <option value=1>★☆☆☆☆</option>
+          <option value=2>★★☆☆☆</option>
+          <option value=3>★★★☆☆</option>
+          <option value=4>★★★★☆</option>
+          <option value=5>★★★★★</option>
+        </select>
+        <button>등록</button>
+      </div>
+    </div>
+  </form>
+  <div class="book-detail-comment">
+    {% for comment, email in comment_list %}
+    <div class="book-detail-comment-comment">
+      <p>{{ comment.comment }}</p>
+    </div>
+    <div class="book-detail-comment-rating">
+      <p>{{ email[0] }}</p>
+      <p>
+        {% for star in range(comment.rating) %} ★ {% endfor %}
+        {% for star in range(5 - comment.rating) %} ☆ {% endfor %}
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

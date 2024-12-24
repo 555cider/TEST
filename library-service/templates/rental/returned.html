@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block container %}
+{% if book_list %}
+<div class="book-list">
+  {% for book in book_list %}
+  <div class="book-list-book">
+    <div class="book-list-img" style="background-image: url({{ book.cover }})">
+    </div>
+    <p>
+      <a href="/book/detail?isbn={{ book.isbn }}">{{ book.title }}</a>
+    </p>
+    <p>
+      {% for star in range(book.rating|int) %} ★ {% endfor %}
+      {% for star in range(5 - book.rating|int) %} ☆ {% endfor %}
+    </p>
+    <p>대여일: {{ book.rented_date.strftime('%Y. %m. %d.') }}</p>
+    <p>반납일: {{ book.returned_date.strftime('%Y. %m. %d.') }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="book-list-nothing">
+  <p>대여 기록이 없습니다.</p>
+</div>
+{% endif %}
+{% endblock %}

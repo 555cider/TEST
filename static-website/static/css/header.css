@@ -1,0 +1,70 @@
+/* header */
+header {
+    .title-area {
+        position: fixed;
+        top: 25px;
+        left: 25px;
+        z-index: 3;
+    }
+
+    button#open-top-nav-menu,
+    button#close-top-nav-menu {
+        position: fixed;
+        border-radius: 25%;
+        padding: 0;
+        top: 25px;
+        right: 25px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    button#open-top-nav-menu img,
+    button#close-top-nav-menu img {
+        width: 50px;
+        margin: auto;
+    }
+
+    button#close-top-nav-menu {
+        background-color: #ccc;
+    }
+
+    button#close-top-nav-menu:hover {
+        background-color: #aaa;
+    }
+
+    #top-nav-menu {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        /* top: 0;
+        left: 0; */
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+
+    .top-nav-list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        text-align: center;
+        color: white;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    @media only screen and (min-width : 320px) and (max-width : 480px) {
+        .header-title {
+            font-size: 16px;
+            margin-left: 10px;
+            align-self: center;
+        }
+    }
+}

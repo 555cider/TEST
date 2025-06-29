@@ -1,0 +1,57 @@
+@import "/static/css/main.css";
+
+/* location */
+section.location {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .direction .tab {
+        display: flex;
+        padding: 20px 0;
+        border-bottom: 1px solid #1e1e1e
+    }
+
+    .direction .tab li {
+        padding: 0 10px;
+        margin-right: 20px;
+        background-color: #e8e8e8;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .direction .tab li.current {
+        background-color: #1e1e1e;
+        color: #fcf113;
+        font-weight: 600;
+    }
+
+    .direction-detail {
+        display: none;
+        text-align: right;
+        width: 100%;
+    }
+
+    .direction-detail.current {
+        display: inline-block;
+    }
+
+    .direction-detail p {
+        display: inline-flex;
+    }
+
+    .direction .tab li p {
+        font-size: 14px;
+    }
+
+    @media only screen and (min-width:320px) and (max-width:480px) {
+        .direction .tab {
+            justify-content: space-between
+        }
+
+        .direction .tab li {
+            padding: 3px 8px;
+            margin-right: 0
+        }
+    }
+}

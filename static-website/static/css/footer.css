@@ -1,0 +1,123 @@
+footer {
+    .footer-bottom {
+        padding: 10px 50px;
+        background-color: #f0f0f0;
+        position: relative;
+        z-index: 3;
+        position: relative;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .footer-bottom h9 {
+        font-size: 12px;
+    }
+
+    .footer-bottom div a {
+        margin: 0 10px;
+        font-weight: 800;
+    }
+
+    .site-info {
+        display: inline-flex;
+        width: 100%;
+        padding: 50px;
+        background-color: #f0f0f0;
+        justify-content: center;
+        z-index: 5;
+        position: relative;
+    }
+
+    .site-info>div .logo {
+        position: absolute;
+        width: 50px;
+        top: -25px;
+    }
+
+    .site-info .info-row {
+        display: flex;
+        text-align: left;
+    }
+
+    .site-info .info-row h9:first-child {
+        width: 100px;
+        display: inline-block;
+        text-align: right;
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: 2px solid #000000;
+        font-weight: bold;
+    }
+
+    .site-info .menu {
+        display: inline-flex;
+        flex-direction: column;
+    }
+
+    .site-info ul.menu>li {
+        margin: 5px;
+        display: inline-flex;
+    }
+
+    .site-info ul.menu>li>a {
+        font-size: 13px;
+        color: #1e1e1e;
+        font-weight: bold;
+        align-self: center;
+        width: 100px;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    .site-info ul.menu>li>.sub-menu {
+        margin: 0;
+        display: inline-flex;
+    }
+
+    .site-info ul.menu>li>.sub-menu>li {
+        display: inline-flex;
+    }
+
+    .site-info ul.menu>li>.sub-menu>li>a {
+        font-size: 13px;
+        color: #737373;
+        margin: 0 10px;
+    }
+
+    @media only screen and (min-width : 320px) and (max-width : 480px) {
+        &footer:before {
+            display: none !important;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .footer-bottom div {
+            margin: 10px auto;
+        }
+
+        .site-info {
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 0px;
+        }
+
+        .site-info>div {
+            width: 100%;
+            text-align: center;
+        }
+
+        .site-info>div .logo {
+            margin-bottom: 30px;
+            position: relative;
+            top: 0;
+        }
+
+        .site-info>div.footer-menu {
+            display: none;
+        }
+    }
+}
